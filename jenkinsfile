@@ -8,13 +8,13 @@ pipeline {
     }
     stage ("3. Build the project") {
       steps {
-        sh "cp -R /var/lib/jenkins/workspace/cicd_demo/target/* /home/ubuntu/docker/"
+        sh "cp -R /var/lib/jenkins/workspace/cicd_demo/target/* /home/jenkins"
       }
     }
     
     stage ("4. Build the docker image") {
         steps {
-            sh "docker build -t maven_image /home/ubuntu/docker"
+            sh "docker build -t maven_image /home/jenkins"
         }
     }
   }
