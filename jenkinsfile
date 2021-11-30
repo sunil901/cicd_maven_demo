@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage ("2.Copy the project files") {
       steps {
-        sh "cp -R /var/lib/jenkins/workspace/cicd_demo/cicd_maven_demo/* /var/lib/jenkins/workspace/cicd_demo/"      
+        sh "mvn clean install"    
       }
     }
     stage ("3. Build the project") {
       steps {
-        sh "mvn clean install"
+        sh "cp -R /var/lib/jenkins/workspace/cicd_demo/target/* /home/ubuntu/docker/"
       }
     }
     
