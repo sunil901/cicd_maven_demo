@@ -1,0 +1,21 @@
+pipeline {
+  agent any
+  stages {
+    stage ("2.Copy the project files") {
+      steps {
+        sh "cp -R /var/lib/jenkins/workspace/cicd_demo/cicd_maven_demo/* /var/lib/jenkins/workspace/cicd_demo/"      
+      }
+    }
+    stage ("3. Build the project") {
+      steps {
+        sh "mvn clean install"
+      }
+    }
+    
+    stage ("4. Build the docker image") {
+        steps {
+            sh "docker build -t maven_image /home/ubuntu/docker"
+        }
+    }
+  }
+}
