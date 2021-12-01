@@ -4,7 +4,7 @@ pipeline {
     stage ("2.Copy the project files") {
       steps {
         sh "mvn clean install"
-        sh "mvn --version"
+        
       }
     }
     stage ("3. Build the project") {
