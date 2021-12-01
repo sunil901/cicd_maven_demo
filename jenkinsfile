@@ -6,11 +6,6 @@ pipeline {
         sh "mvn clean install"    
       }
     }
-    stage ("10. Print the mvn version") {
-      step {
-        sh "mvn --version"
-      }
-    }
     stage ("3. Build the project") {
       steps {
         sh "cp -R /var/lib/jenkins/workspace/cicd_demo/target/* /home/jenkins"
