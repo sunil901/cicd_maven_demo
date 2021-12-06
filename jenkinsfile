@@ -18,5 +18,10 @@ pipeline {
             sh "docker build -t maven_image_new011 /home/jenkins"
         }
     }
+  post {
+    always {
+      cleanWs()
+      }
+    }
   }
 }
